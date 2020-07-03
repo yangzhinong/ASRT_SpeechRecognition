@@ -182,7 +182,7 @@ class ModelSpeech(): # 语音模型类
 				except StopIteration:
 					print('[error] generator error. please check data format.')
 					break
-				
+				os.makedirs(abspath + 'model_speech/m'+ModelName, exist_ok=True)
 				self.SaveModel(comment='_e_'+str(epoch)+'_step_'+str(n_step * save_step))
 				self.TestModel(self.datapath, str_dataset='train', data_count = 4)
 				self.TestModel(self.datapath, str_dataset='dev', data_count = 4)
